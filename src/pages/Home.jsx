@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 import villaImage from "../assets/Villa.jpeg";
 import logo from "../assets/logo.webp";
 
@@ -66,6 +67,7 @@ const SparkleIcon = () => (
 
 export default function Home() {
   const navigate = useNavigate();
+  const footerRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -218,7 +220,7 @@ export default function Home() {
         <div
           className={`bali-up ${visible ? "on" : ""}`}
           style={{
-            padding: "52px 24px 26px",
+            padding: "40px 24px 26px",
             borderBottom: "0.5px solid rgba(255,240,210,0.12)",
             textAlign: "center",
           }}
@@ -231,15 +233,6 @@ export default function Home() {
               margin: "0 auto",
               display: "block",
               objectFit: "contain",
-            }}
-          />
-
-          <div
-            style={{
-              width: "34px",
-              height: "0.5px",
-              background: "rgba(200,168,120,0.42)",
-              margin: "18px auto 0",
             }}
           />
         </div>
@@ -295,11 +288,32 @@ export default function Home() {
                 marginBottom: "20px",
               }}
             >
-              Welcome to The Bali Dream Villa — a retreat designed for comfort,
-              privacy, and unforgettable moments. Every detail is crafted for
-              your journey.
+              Welcome to The Bali Dream Villa, a peaceful sanctuary designed for
+              comfort, privacy, and unforgettable moments. From thoughtfully
+              curated rooms to personalized services, we are here to make your
+              stay truly special. Enjoy a relaxing atmosphere, warm hospitality,
+              and everything you need for a memorable stay.
             </p>
-            <button className="ghost-btn" onClick={() => navigate("/services")}>
+
+            <p
+              style={{
+                fontFamily: "'Jost',sans-serif",
+                fontSize: "13px",
+                fontWeight: "300",
+                color: "rgba(225,205,172,0.88)",
+                lineHeight: "1.9",
+                marginBottom: "10px",
+              }}
+            >
+              If you need any assistance, our team is always ready to help—just
+              one click away.
+            </p>
+            <button
+              className="ghost-btn font-bold"
+              onClick={() =>
+                footerRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Contact Us <ArrowRight />
             </button>
           </section>
@@ -429,18 +443,272 @@ export default function Home() {
             </div>
           </section>
 
-          {/* CONTACT */}
+          {/* OUR PROPERTY */}
           <section className={`bali-up d4 ${visible ? "on" : ""}`}>
-            <p style={label}>Contact</p>
+            <p style={label}>Our Property</p>
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "11px" }}
+              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
             >
               {[
-                { Icon: PhoneIcon, text: "+62 361 737 788" },
-                { Icon: MailIcon, text: "info@thebalidreamvilla.com" },
-              ].map(({ Icon, text }, i) => (
+                "Bali Dream Villa Suites",
+                "Bali Dream Villa Canggu",
+                "Bali Dream Villa 1",
+                "Bali Dream Villa 2",
+              ].map((name, i) => (
                 <div
                   key={i}
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <div
+                    style={{
+                      width: "4px",
+                      height: "4px",
+                      borderRadius: "50%",
+                      background: "rgba(200,168,120,0.6)",
+                      flexShrink: 0,
+                    }}
+                  />
+                  <p
+                    style={{
+                      fontFamily: "'Jost',sans-serif",
+                      fontSize: "12.5px",
+                      fontWeight: "300",
+                      color: "rgba(230,210,180,0.88)",
+                    }}
+                  >
+                    {name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* HEAD OFFICE */}
+          <section
+            className={`bali-up d4 ${visible ? "on" : ""}`}
+            style={{
+              borderTop: "0.5px solid rgba(255,240,210,0.08)",
+              paddingTop: "32px",
+            }}
+          >
+            <p style={label}>Head Office</p>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "14px" }}
+            >
+              {/* Address */}
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div
+                  style={{
+                    width: "31px",
+                    height: "31px",
+                    borderRadius: "50%",
+                    background: "rgba(255,240,210,0.08)",
+                    border: "0.5px solid rgba(255,240,210,0.16)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "rgba(200,168,120,0.85)",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <p
+                  style={{
+                    fontFamily: "'Jost',sans-serif",
+                    fontSize: "12.5px",
+                    fontWeight: "300",
+                    color: "rgba(230,210,180,0.88)",
+                    lineHeight: "1.7",
+                  }}
+                >
+                  Jl. Dewi Saraswati III, Seminyak,
+                  <br />
+                  Kec. Kuta, Kabupaten Badung,
+                  <br />
+                  Bali 80361
+                </p>
+              </div>
+              {/* Email */}
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <div
+                  style={{
+                    width: "31px",
+                    height: "31px",
+                    borderRadius: "50%",
+                    background: "rgba(255,240,210,0.08)",
+                    border: "0.5px solid rgba(255,240,210,0.16)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "rgba(200,168,120,0.85)",
+                    flexShrink: 0,
+                  }}
+                >
+                  <MailIcon />
+                </div>
+                <p
+                  style={{
+                    fontFamily: "'Jost',sans-serif",
+                    fontSize: "12.5px",
+                    fontWeight: "300",
+                    color: "rgba(230,210,180,0.88)",
+                    wordBreak: "break-all",
+                  }}
+                >
+                  info@thebalidreamvilla.com
+                </p>
+              </div>
+              {/* Phone */}
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <div
+                  style={{
+                    width: "31px",
+                    height: "31px",
+                    borderRadius: "50%",
+                    background: "rgba(255,240,210,0.08)",
+                    border: "0.5px solid rgba(255,240,210,0.16)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "rgba(200,168,120,0.85)",
+                    flexShrink: 0,
+                  }}
+                >
+                  <PhoneIcon />
+                </div>
+                <div>
+                  <p
+                    style={{
+                      fontFamily: "'Jost',sans-serif",
+                      fontSize: "12.5px",
+                      fontWeight: "300",
+                      color: "rgba(230,210,180,0.88)",
+                    }}
+                  >
+                    +62 361 737788
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'Jost',sans-serif",
+                      fontSize: "12.5px",
+                      fontWeight: "300",
+                      color: "rgba(230,210,180,0.88)",
+                    }}
+                  >
+                    +62 878 0651 4620
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FOLLOW US */}
+          <section
+            className={`bali-up d5 ${visible ? "on" : ""}`}
+            style={{
+              borderTop: "0.5px solid rgba(255,240,210,0.08)",
+              paddingTop: "32px",
+            }}
+          >
+            <p style={label}>Follow Us</p>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            >
+              {[
+                {
+                  label: "Instagram",
+                  icon: (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Facebook",
+                  icon: (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "YouTube",
+                  icon: (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "www.thebalidreamvilla.com",
+                  href: "https://thebalidreamvilla.krisnagentawinangun.com/",
+                  icon: (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                  ),
+                },
+              ].map(({ label: lbl, icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
                   style={{ display: "flex", alignItems: "center", gap: "12px" }}
                 >
                   <div
@@ -457,20 +725,19 @@ export default function Home() {
                       flexShrink: 0,
                     }}
                   >
-                    <Icon />
+                    {icon}
                   </div>
                   <p
                     style={{
                       fontFamily: "'Jost',sans-serif",
                       fontSize: "12.5px",
                       fontWeight: "300",
-                      color: "rgba(230,210,180,0.9)",
-                      wordBreak: "break-all",
+                      color: "rgba(230,210,180,0.88)",
                     }}
                   >
-                    {text}
+                    {lbl}
                   </p>
-                </div>
+                </a>
               ))}
             </div>
           </section>
@@ -478,6 +745,7 @@ export default function Home() {
 
         {/* FOOTER */}
         <div
+          ref={footerRef}
           className={`bali-up d5 ${visible ? "on" : ""}`}
           style={{ padding: "16px 24px 28px", textAlign: "center" }}
         >

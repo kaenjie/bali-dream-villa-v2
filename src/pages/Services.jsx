@@ -119,29 +119,16 @@ const FacilitiesIcon = () => (
   </svg>
 );
 
-const ActivitiesIcon = () => (
-  <svg
-    width="21"
-    height="21"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 8l4 4-4 4-4-4 4-4z" />
-  </svg>
-);
-
 const services = [
   { name: "Spa", subtitle: "Wellness & Ritual", Icon: SpaIcon },
   { name: "Room Service", subtitle: "In-Villa Dining", Icon: RoomServiceIcon },
   { name: "Villa Compendium", subtitle: "Villa Guide", Icon: BookIcon },
   { name: "Villa Rules", subtitle: "Policies & Info", Icon: ScrollIcon },
-  { name: "Facilities & Activities", subtitle: "Pool & Grounds", Icon: FacilitiesIcon },
-  { name: "Activities", subtitle: "Explore Bali", Icon: ActivitiesIcon },
+  {
+    name: "Facilities & Activities",
+    subtitle: "Pool, Garden & Amenities",
+    Icon: FacilitiesIcon,
+  },
 ];
 
 export default function Services() {
@@ -282,30 +269,29 @@ export default function Services() {
             paddingBottom: "8px",
           }}
         >
-          {[
-            { action: () => navigate("/"), Icon: BackIcon },
-            { action: () => {}, Icon: SettingsIcon },
-          ].map(({ action, Icon }, i) => (
-            <button
-              key={i}
-              className="nav-btn"
-              onClick={action}
-              style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "50%",
-                background: "rgba(255,255,255,0.1)",
-                border: "0.5px solid rgba(255,240,210,0.18)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "rgba(248,235,210,0.88)",
-                cursor: "pointer",
-              }}
-            >
-              <Icon />
-            </button>
-          ))}
+          {[{ action: () => navigate("/"), Icon: BackIcon }].map(
+            ({ action, Icon }, i) => (
+              <button
+                key={i}
+                className="nav-btn"
+                onClick={action}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.1)",
+                  border: "0.5px solid rgba(255,240,210,0.18)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "rgba(248,235,210,0.88)",
+                  cursor: "pointer",
+                }}
+              >
+                <Icon />
+              </button>
+            ),
+          )}
         </div>
 
         {/* TITLE */}
