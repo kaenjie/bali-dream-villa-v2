@@ -75,6 +75,10 @@ export default function Home() {
     return () => clearTimeout(t);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const promos = [
     { title: "Garden\nRelaxation", tag: "Nature" },
     { title: "Breakfast\nSpecial", tag: "Dining" },

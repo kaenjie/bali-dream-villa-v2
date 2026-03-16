@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import villaImage from "../assets/Villa.jpeg";
+import Spa from "./Spa";
 
 const BackIcon = () => (
   <svg
@@ -138,6 +139,10 @@ export default function Services() {
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
     return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -356,6 +361,11 @@ export default function Services() {
               <div
                 key={i}
                 className={`svc-card svc-up s${i} ${visible ? "on" : ""}`}
+                onClick={() => {
+                  if (service.name === "Spa") {
+                    navigate("/spa");
+                  }
+                }}
                 style={{
                   padding: "20px 16px 18px",
                   display: "flex",
