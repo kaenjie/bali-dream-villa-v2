@@ -1,124 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import villaImage from "../assets/Villa.jpeg";
-import Spa from "./Spa";
-
-const BackIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M19 12H5M12 5l-7 7 7 7" />
-  </svg>
-);
-
-const SettingsIcon = () => (
-  <svg
-    width="17"
-    height="17"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="3" />
-    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-  </svg>
-);
-
-const SpaIcon = () => (
-  <svg
-    width="21"
-    height="21"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12 22c-4.97 0-9-4.03-9-9 0-3.18 1.67-6.14 4.38-7.82A9.01 9.01 0 0 1 12 4c1.65 0 3.24.46 4.62 1.18A8.98 8.98 0 0 1 21 13c0 4.97-4.03 9-9 9z" />
-    <path d="M12 22V11" />
-    <path d="M12 11c0 0-2-3-5-3" />
-    <path d="M12 11c0 0 2-3 5-3" />
-  </svg>
-);
-
-const RoomServiceIcon = () => (
-  <svg
-    width="21"
-    height="21"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M3 17h18" />
-    <path d="M12 3a7 7 0 0 1 7 7H5a7 7 0 0 1 7-7z" />
-    <path d="M12 3v2" />
-    <path d="M8 21h8" />
-    <path d="M12 17v4" />
-  </svg>
-);
-
-const BookIcon = () => (
-  <svg
-    width="21"
-    height="21"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-  </svg>
-);
-
-const ScrollIcon = () => (
-  <svg
-    width="21"
-    height="21"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-    <path d="M14 2v6h6" />
-    <path d="M9 13h6M9 17h3" />
-  </svg>
-);
-
-const FacilitiesIcon = () => (
-  <svg
-    width="21"
-    height="21"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-    <path d="M9 22V12h6v10" />
-  </svg>
-);
+import BackIcon from "../components/BackIcon";
+import SpaIcon from "../components/icons/SpaIcon";
+import RoomServiceIcon from "../components/icons/RoomServiceIcon";
+import BookIcon from "../components/icons/BookIcon";
+import ScrollIcon from "../components/icons/ScrollIcon";
+import FacilitiesIcon from "../components/icons/FacilitiesIcon";
+import ServiceCard from "../components/services/ServiceCard";
 
 const services = [
   { name: "Spa", subtitle: "Wellness & Ritual", Icon: SpaIcon },
@@ -358,63 +247,19 @@ export default function Services() {
             }}
           >
             {services.map((service, i) => (
-              <div
-                key={i}
-                className={`svc-card svc-up s${i} ${visible ? "on" : ""}`}
+              <ServiceCard
+                key={service.name}
+                name={service.name}
+                subtitle={service.subtitle}
+                Icon={service.Icon}
+                isVisible={visible}
+                delayClass={`s${i}`}
                 onClick={() => {
                   if (service.name === "Spa") {
                     navigate("/spa");
                   }
                 }}
-                style={{
-                  padding: "20px 16px 18px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "14px",
-                }}
-              >
-                <div
-                  className="icon-wrap"
-                  style={{
-                    width: "42px",
-                    height: "42px",
-                    borderRadius: "50%",
-                    background: "rgba(255,240,210,0.1)",
-                    border: "0.5px solid rgba(255,240,210,0.16)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "rgba(218,188,145,0.92)",
-                  }}
-                >
-                  <service.Icon />
-                </div>
-                <div>
-                  <p
-                    style={{
-                      fontFamily: "'Jost',sans-serif",
-                      fontSize: "12.5px",
-                      fontWeight: "500",
-                      color: "rgba(250,242,228,0.97)",
-                      letterSpacing: "0.3px",
-                      marginBottom: "4px",
-                    }}
-                  >
-                    {service.name}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "'Jost',sans-serif",
-                      fontSize: "10.5px",
-                      fontWeight: "300",
-                      color: "rgba(198,168,125,0.82)",
-                      letterSpacing: "0.5px",
-                    }}
-                  >
-                    {service.subtitle}
-                  </p>
-                </div>
-              </div>
+              />
             ))}
           </div>
         </div>

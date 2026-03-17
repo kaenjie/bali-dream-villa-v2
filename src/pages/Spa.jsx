@@ -1,36 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import BackIcon from "../components/BackIcon";
 import spa1 from "../assets/spa-1.webp";
 import spa2 from "../assets/spa-2.webp";
 import spa3 from "../assets/spa-3.webp";
 import spa4 from "../assets/spa-4.webp";
 import spa5 from "../assets/spa-5.webp";
 
-const BackIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M19 12H5M12 5l-7 7 7 7" />
-  </svg>
-);
-
 const spaImages = [spa1, spa2, spa3, spa4, spa5];
 
 export default function Spa() {
   const navigate = useNavigate();
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 60);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,7 +18,7 @@ export default function Spa() {
 
   return (
     <div
-      className={`spa-page ${visible ? "show" : ""}`}
+      className="spa-page"
       style={{
         width: "100%",
         maxWidth: "100%",
@@ -52,11 +32,6 @@ export default function Spa() {
       <style>{`
 
         .spa-page{
-          opacity:1;
-          transform:translateY(0);
-        }
-
-        .spa-page.show{
           opacity:1;
           transform:translateY(0);
         }
