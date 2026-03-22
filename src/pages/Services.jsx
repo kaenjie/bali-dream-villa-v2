@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import villaImage from "../assets/Villa.jpeg";
-import BackIcon from "../components/BackIcon";
+import BackIcon from "../components/icons/BackIcon";
 import SpaIcon from "../components/icons/SpaIcon";
 import RoomServiceIcon from "../components/icons/RoomServiceIcon";
 import BookIcon from "../components/icons/BookIcon";

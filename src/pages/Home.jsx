@@ -2,13 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import villaImage from "../assets/Villa.jpeg";
 import logo from "../assets/logo.webp";
-import WelcomeSection from "../components/home/WelcomeSection";
 import ServicesSection from "../components/home/ServicesSection";
 import PromotionsSection from "../components/home/PromotionsSection";
-import PropertySection from "../components/home/PropertySection";
 import HeadOfficeSection from "../components/home/HeadOfficeSection";
 import FollowUsSection from "../components/home/FollowUsSection";
 import FooterCopyright from "../components/FooterCopyright";
+import canggu from "../assets/promotions/canggu.jpg";
+import seminyak from "../assets/promotions/seminyak.jpg";
+import suite from "../assets/promotions/suite.jpg";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -25,9 +26,21 @@ export default function Home() {
   }, []);
 
   const promos = [
-    { title: "Garden\nRelaxation", tag: "Nature" },
-    { title: "Breakfast\nSpecial", tag: "Dining" },
-    { title: "Tropical\nWalk", tag: "Adventure" },
+    {
+      title: "Garden\nRelaxation",
+      tag: "Nature",
+      image: canggu,
+    },
+    {
+      title: "Breakfast\nSpecial",
+      tag: "Dining",
+      image: seminyak,
+    },
+    {
+      title: "Tropical\nWalk",
+      tag: "Adventure",
+      image: suite,
+    },
   ];
 
   const labelStyle = {
@@ -202,27 +215,13 @@ export default function Home() {
             gap: "36px",
           }}
         >
-          <WelcomeSection
-            labelStyle={labelStyle}
-            visible={visible}
-            onContactClick={() =>
-              footerRef.current?.scrollIntoView({ behavior: "smooth" })
-            }
-          />
-
-          <ServicesSection
-            labelStyle={labelStyle}
-            visible={visible}
-            onNavigateServices={() => navigate("/services")}
-          />
+          <ServicesSection labelStyle={labelStyle} visible={visible} />
 
           <PromotionsSection
             labelStyle={labelStyle}
             visible={visible}
             promos={promos}
           />
-
-          <PropertySection labelStyle={labelStyle} visible={visible} />
 
           <HeadOfficeSection labelStyle={labelStyle} visible={visible} />
 
