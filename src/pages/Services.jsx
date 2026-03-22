@@ -35,100 +35,20 @@ export default function Services() {
   }, []);
 
   return (
-    <div
-      className="w-full max-w-md mx-auto"
-      style={{
-        minHeight: "100vh",
-        position: "relative",
-        overflow: "hidden",
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-      }}
-    >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+    <div className="w-full max-w-md mx-auto font-cormorant relative overflow-hidden min-h-screen">
 
-        .svc-up { opacity:0; transform:translateY(16px); transition:opacity .6s ease,transform .6s ease; }
-        .svc-up.on { opacity:1; transform:translateY(0); }
-        .s0{transition-delay:.05s} .s1{transition-delay:.13s} .s2{transition-delay:.21s}
-        .s3{transition-delay:.29s} .s4{transition-delay:.37s} .s5{transition-delay:.45s}
-        .hdr{transition-delay:.0s}  .ttl{transition-delay:.12s} .ftr{transition-delay:.55s}
-
-        .svc-card {
-          background: rgba(255,245,228,0.07);
-          border: 0.5px solid rgba(255,240,210,0.14);
-          border-radius: 4px;
-          transition: background .3s ease, transform .25s ease;
-          cursor: pointer;
-        }
-        .svc-card:hover {
-          background: rgba(255,245,228,0.14);
-          transform: scale(1.02);
-        }
-        .svc-card:active { transform: scale(0.98); }
-
-        .icon-wrap {
-          transition: background .3s ease, transform .3s ease;
-        }
-        .svc-card:hover .icon-wrap {
-          background: rgba(255,240,210,0.2) !important;
-          transform: rotate(5deg);
-        }
-
-        .nav-btn {
-          transition: background .2s ease;
-        }
-        .nav-btn:hover { background: rgba(255,255,255,0.2) !important; }
-      `}</style>
 
       {/* BG PHOTO */}
-      <img
-        src={villaImage}
-        alt=""
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-        }}
-      />
+      <img src={villaImage} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
 
       {/* OVERLAY */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 1,
-          background:
-            "linear-gradient(158deg, rgba(28,16,6,0.42) 0%, rgba(24,12,3,0.52) 40%, rgba(20,8,0,0.62) 100%)",
-        }}
-      />
+      <div className="absolute inset-0 z-10 overlay-gradient-services" />
 
       {/* WARM TINT */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 2,
-          background:
-            "radial-gradient(ellipse at 60% 10%, rgba(180,130,80,0.25) 0%, transparent 55%)",
-        }}
-      />
+      <div className="absolute inset-0 z-20 radial-tint-home" />
 
       {/* NOISE */}
-      <svg
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          opacity: 0.022,
-          zIndex: 3,
-          pointerEvents: "none",
-        }}
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg className="absolute inset-0 w-full h-full home-noise z-30" xmlns="http://www.w3.org/2000/svg">
         <filter id="n2">
           <feTurbulence
             type="fractalNoise"
@@ -142,45 +62,15 @@ export default function Services() {
       </svg>
 
       {/* CONTENT */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          padding: "0 20px 32px",
-        }}
-      >
+      <div className="relative z-40 min-h-screen flex flex-col px-[20px] pb-[32px]">
         {/* TOP NAV*/}
-        <div
-          className={`svc-up hdr ${visible ? "on" : ""}`}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingTop: "52px",
-            paddingBottom: "8px",
-          }}
-        >
+        <div className={`svc-up hdr ${visible ? "on" : ""} flex justify-between items-center pt-[52px] pb-[8px]`}>
           {[{ action: () => navigate("/"), Icon: BackIcon }].map(
             ({ action, Icon }, i) => (
               <button
                 key={i}
-                className="nav-btn"
+                className="nav-btn w-[40px] h-[40px] rounded-full bg-[rgba(255,255,255,0.1)] border-[0.5px] border-[rgba(255,240,210,0.18)] flex items-center justify-center text-[rgba(248,235,210,0.88)] cursor-pointer"
                 onClick={action}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.1)",
-                  border: "0.5px solid rgba(255,240,210,0.18)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "rgba(248,235,210,0.88)",
-                  cursor: "pointer",
-                }}
               >
                 <Icon />
               </button>
@@ -189,63 +79,19 @@ export default function Services() {
         </div>
 
         {/* TITLE */}
-        <div
-          className={`svc-up ttl ${visible ? "on" : ""}`}
-          style={{ padding: "28px 4px 24px" }}
-        >
-          <p
-            style={{
-              fontFamily: "'Jost',sans-serif",
-              fontSize: "9.5px",
-              letterSpacing: "3.5px",
-              color: "rgba(200,168,120,0.72)",
-              textTransform: "uppercase",
-              marginBottom: "10px",
-            }}
-          >
+        <div className={`svc-up ttl ${visible ? "on" : ""} pt-[28px] px-[4px] pb-[24px]`}>
+          <p className="label-jost">
             The Bali Dream Villa
           </p>
-          <h1
-            style={{
-              fontSize: "40px",
-              fontWeight: "300",
-              color: "rgba(252,244,230,0.97)",
-              letterSpacing: "1.5px",
-              fontStyle: "italic",
-              lineHeight: "1.15",
-            }}
-          >
+          <h1 className="text-[40px] font-[300] text-[rgba(252,244,230,0.97)] tracking-[1.5px] italic leading-[1.15]">
             Our Services
           </h1>
-          <div
-            style={{
-              width: "32px",
-              height: "0.5px",
-              background: "rgba(200,168,120,0.42)",
-              marginTop: "15px",
-            }}
-          />
+          <div className="w-[32px] h-[0.5px] bg-[rgba(200,168,120,0.42)] mt-[15px]" />
         </div>
 
         {/* FROSTED PANEL*/}
-        <div
-          style={{
-            borderRadius: "14px",
-            background: "rgba(10,5,1,0.52)",
-            backdropFilter: "blur(22px)",
-            WebkitBackdropFilter: "blur(22px)",
-            border: "0.5px solid rgba(255,240,210,0.1)",
-            padding: "22px 18px",
-            flex: 1,
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "10px",
-            }}
-          >
+        <div className="frosted-panel-dark p-[22px_18px] flex-1 rounded-[14px]">
+          <div className="grid grid-cols-2 gap-[10px]">
             {services.map((service, i) => (
               <ServiceCard
                 key={service.name}
@@ -265,27 +111,9 @@ export default function Services() {
         </div>
 
         {/* FOOTER */}
-        <div
-          className={`svc-up ftr ${visible ? "on" : ""}`}
-          style={{
-            marginTop: "22px",
-            paddingTop: "18px",
-            borderTop: "0.5px solid rgba(255,240,210,0.1)",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
+        <div className={`svc-up ftr ${visible ? "on" : ""} mt-[22px] pt-[18px] border-t border-[rgba(255,240,210,0.1)] flex justify-between`}>
           {["www.thebalidream.com", "+62 361 737 788"].map((t, i) => (
-            <p
-              key={i}
-              style={{
-                fontFamily: "'Jost',sans-serif",
-                fontSize: "11px",
-                fontWeight: "300",
-                color: "rgba(188,158,112,0.6)",
-                letterSpacing: "0.5px",
-              }}
-            >
+            <p key={i} className="font-jost text-[11px] font-[300] text-[rgba(188,158,112,0.6)] tracking-[0.5px]">
               {t}
             </p>
           ))}

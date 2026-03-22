@@ -1,19 +1,6 @@
 export default function InfoIconCircle({ children }) {
   return (
-    <div
-      style={{
-        width: "31px",
-        height: "31px",
-        borderRadius: "50%",
-        background: "rgba(255,240,210,0.08)",
-        border: "0.5px solid rgba(255,240,210,0.16)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "rgba(200,168,120,0.85)",
-        flexShrink: 0,
-      }}
-    >
+    <div className="w-[31px] h-[31px] rounded-full bg-[rgba(255,240,210,0.08)] border-[0.5px] border-[rgba(255,240,210,0.16)] flex items-center justify-center text-[rgba(200,168,120,0.85)] shrink-0">
       {children}
     </div>
   );

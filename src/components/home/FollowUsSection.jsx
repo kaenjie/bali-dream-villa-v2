@@ -74,30 +74,17 @@ const socialLinks = [
 
 export default function FollowUsSection({ labelStyle, visible }) {
   return (
-    <section
-      className={`bali-up d5 ${visible ? "on" : ""}`}
-      style={{
-        borderTop: "0.5px solid rgba(255,240,210,0.08)",
-        paddingTop: "32px",
-      }}
-    >
-      <p style={labelStyle}>Follow Us</p>
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+    <section className={`bali-up d5 ${visible ? "on" : ""} border-t border-[rgba(255,240,210,0.08)] pt-[32px]`}>
+      <p className="label-jost">Follow Us</p>
+      <div className="flex gap-[10px] items-center">
         {socialLinks.map(({ label, icon, href }, i) => (
           <a
             key={i}
             href={href}
-            style={{ display: "flex", alignItems: "center", gap: "12px" }}
+            className="flex items-center gap-[12px]"
           >
             <InfoIconCircle>{icon}</InfoIconCircle>
-            <p
-              style={{
-                fontFamily: "'Jost',sans-serif",
-                fontSize: "12.5px",
-                fontWeight: "300",
-                color: "rgba(230,210,180,0.88)",
-              }}
-            >
+            <p className="font-jost text-[12.5px] font-[300] text-[rgba(230,210,180,0.88)]">
               {label}
             </p>
           </a>

@@ -8,55 +8,15 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className={`svc-card svc-up ${delayClass} ${isVisible ? "on" : ""}`}
+      className={`svc-card svc-up ${delayClass} ${isVisible ? "on" : ""} p-[18px] pt-[20px] px-[16px] flex flex-col gap-[14px]`}
       onClick={onClick}
-      style={{
-        padding: "20px 16px 18px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "14px",
-      }}
     >
-      <div
-        className="icon-wrap"
-        style={{
-          width: "42px",
-          height: "42px",
-          borderRadius: "50%",
-          background: "rgba(255,240,210,0.1)",
-          border: "0.5px solid rgba(255,240,210,0.16)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "rgba(218,188,145,0.92)",
-        }}
-      >
+      <div className="icon-wrap w-[42px] h-[42px] rounded-full bg-[rgba(255,240,210,0.1)] border-[0.5px] border-[rgba(255,240,210,0.16)] flex items-center justify-center text-[rgba(218,188,145,0.92)]">
         <Icon />
       </div>
       <div>
-        <p
-          style={{
-            fontFamily: "'Jost',sans-serif",
-            fontSize: "12.5px",
-            fontWeight: "500",
-            color: "rgba(250,242,228,0.97)",
-            letterSpacing: "0.3px",
-            marginBottom: "4px",
-          }}
-        >
-          {name}
-        </p>
-        <p
-          style={{
-            fontFamily: "'Jost',sans-serif",
-            fontSize: "10.5px",
-            fontWeight: "300",
-            color: "rgba(198,168,125,0.82)",
-            letterSpacing: "0.5px",
-          }}
-        >
-          {subtitle}
-        </p>
+        <p className="svc-card-name">{name}</p>
+        <p className="svc-card-subtitle">{subtitle}</p>
       </div>
     </div>
   );
