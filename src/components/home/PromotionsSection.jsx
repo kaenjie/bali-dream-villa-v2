@@ -6,19 +6,16 @@ import suite from "../../assets/promotions/suite.jpg";
 const promosData = [
   {
     tag: "Canggu",
-    // title: "Garden\nRelaxation",
     image: canggu,
     path: "/canggu",
   },
   {
     tag: "Seminyak",
-    // title: "Breakfast\nSpecial",
     image: seminyak,
     path: "/seminyak",
   },
   {
     tag: "Suite",
-    // title: "Tropical\nWalk",
     image: suite,
     path: "/suite",
   },
@@ -27,7 +24,7 @@ const promosData = [
 export default function PromotionsSection({ labelStyle, visible }) {
   const navigate = useNavigate();
 
-    return (
+  return (
     <section className={`bali-up d3 ${visible ? "on" : ""}`}>
       <p className="label-jost">Promotions</p>
 
@@ -35,15 +32,11 @@ export default function PromotionsSection({ labelStyle, visible }) {
         {promosData.map((promo, i) => (
           <div
             key={i}
-            className={`promo-tile bg-[rgba(255,245,230,0.07)] border-[0.5px] border-[rgba(255,240,210,0.14)] p-[5px] min-h-[120px] flex flex-col`}
+            className={`promo-tile bg-[rgba(255,245,230,0.07)] border-[0.5px] border-[rgba(255,240,210,0.14)] p-[8px] min-h-[120px] flex flex-col`}
           >
-            {/* TEXT */}
-            <p className="promo-tag">{promo.tag}</p>
+            {/* TAG */}
+            <p className="promo-tag text-center pb-[5px]">{promo.tag}</p>
 
-            <p className={`promo-title ${i === 1 ? 'promo-title-strong' : ''}`}>
-              {promo.title}
-            </p>
-            {/* ✅ GAMBAR */}
             <img
               src={promo.image}
               alt={promo.tag}

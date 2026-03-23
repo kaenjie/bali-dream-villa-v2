@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Services from "./pages/Services";
 import GalleryPage from "./pages/GalleryPage";
 import spa1 from "./assets/spa/spa-1.webp";
 import spa2 from "./assets/spa/spa-2.webp";
@@ -14,10 +13,9 @@ import suite1 from "./assets/promotions/suite.jpg";
 function App() {
   return (
     <BrowserRouter>
-      <div className="w-full max-w-md mx-auto bg-stone-50 min-h-screen">
+      <div className="w-full bg-stone-50 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
           <Route
             path="/spa"
             element={
