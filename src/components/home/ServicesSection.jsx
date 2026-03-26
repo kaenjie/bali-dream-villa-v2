@@ -79,14 +79,14 @@ export default function ServicesSection({ labelStyle, visible = true }) {
               width: `${
                 (scrollRef.current?.clientWidth /
                   scrollRef.current?.scrollWidth) *
-                70
+                85
               }%`,
               transform: `translateX(${
                 scrollProgress *
-                (100 -
+                (80 -
                   (scrollRef.current?.clientWidth /
                     scrollRef.current?.scrollWidth) *
-                    100)
+                    80)
               }px)`,
             }}
           />
