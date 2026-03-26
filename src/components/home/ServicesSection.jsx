@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
 import SpaIcon from "../icons/SpaIcon";
 import RoomServiceIcon from "../icons/RoomServiceIcon";
 import BookIcon from "../icons/BookIcon";
@@ -36,12 +37,26 @@ const services = [
 
 export default function ServicesSection({ labelStyle, visible = true }) {
   const navigate = useNavigate();
+  const scrollRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const progress = el.scrollLeft / maxScroll;
+    setScrollProgress(progress);
+  };
 
   return (
     <section className={`bali-up d2 ${visible ? "on" : ""}`}>
       <p className="label-jost">Services</p>
 
-      <div className="flex gap-[12px] overflow-x-auto no-scrollbar pt-[8px]">
+      {/* SCROLL AREA */}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex gap-[12px] overflow-x-auto no-scrollbar pt-[8px]"
+      >
         {services.map((service, i) => (
           <ServiceCard
             key={service.name}
@@ -53,6 +68,29 @@ export default function ServicesSection({ labelStyle, visible = true }) {
             onClick={() => navigate(service.path)}
           />
         ))}
+      </div>
+
+      {/* Slider */}
+      <div className="mt-4 flex justify-center">
+        <div className="relative w-[60px] h-[4px] bg-[#e7dfd7] rounded-full overflow-hidden">
+          <div
+            className="absolute top-0 left-0 h-full bg-[#8b7d6b] rounded-full transition-all duration-200"
+            style={{
+              width: `${
+                (scrollRef.current?.clientWidth /
+                  scrollRef.current?.scrollWidth) *
+                70
+              }%`,
+              transform: `translateX(${
+                scrollProgress *
+                (100 -
+                  (scrollRef.current?.clientWidth /
+                    scrollRef.current?.scrollWidth) *
+                    100)
+              }px)`,
+            }}
+          />
+        </div>
       </div>
     </section>
   );
