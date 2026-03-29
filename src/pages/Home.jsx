@@ -27,17 +27,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full font-cormorant bg-[#1a1208] min-h-screen">
+    <div className="w-full font-cormorant bg-[#342818] min-h-screen">
       {/* Hero Image */}
-      <div className="relative h-[260px] w-fully">
+      <div className="relative h-[260px] md:h-full xl:h-full 2xl:h-full w-full">
         <img
           src={villaImage}
           alt=""
-          className="w-full h-full object-cover object-[center_30%]"
+          className="w-full h-full object-cover object-[center_30%] xl:object-[center_20%] 2xl:object-[center_10%] brightness-75"
         />
 
         {/* gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-[#1a1208]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brown/10 via-black/40 to-[#342818]" />
 
         {/* subtle warm tint */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_0%,rgba(212,175,55,0.15),transparent_60%)]" />
@@ -47,22 +47,21 @@ export default function Home() {
           <img
             src={logo}
             alt="The Bali Dream"
-            className="h-[60px] object-contain"
+            className="h-[60px] md:h-[80px] 2xl:h-[120px] object-contain"
           />
         </div>
       </div>
 
       {/* Bottom Sheet */}
       <div
-        className={`relative -mt-12 z-10 rounded-t-[26px] bg-[rgba(18,10,4,0.88)] backdrop-blur-xl border border-[rgba(255,240,210,0.12)] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] px-5 pt-6 pb-7 flex flex-col gap-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+        className={`relative -mt-16 md:-mt-40 xl:-mt-70 2xl:-mt-80 z-10 rounded-t-[26px] bg-[rgba(18, 10, 4, 0.83)] backdrop-blur-xl border border-[rgba(255,240,210,0.12)] px-5 md:px-8 xl:px-14 2xl:px-16 pt-6 md:pt-10 xl:pt-14 2xl:pt-16 pb-7 md:pb-10 2xl:pb-4 flex flex-col gap-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
     `}
       >
         <ServicesSection visible={visible} />
-        <PromotionsSection visible={visible} />
-        <HeadOfficeSection visible={visible} />
-        <FollowUsSection visible={visible} />
-
-        <FooterCopyright ref={footerRef} visible={visible} />
+        <PromotionsSection />
+        <HeadOfficeSection />
+        <FollowUsSection />
+        <FooterCopyright />
       </div>
     </div>
   );

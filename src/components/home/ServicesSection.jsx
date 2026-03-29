@@ -8,31 +8,31 @@ import FacilitiesIcon from "../icons/FacilitiesIcon";
 import ServiceCard from "../services/ServiceCard";
 
 const services = [
-  { name: "Spa", subtitle: "Wellness & Ritual", Icon: SpaIcon, path: "/spa" },
-  {
-    name: "Room Service",
-    subtitle: "In-Villa Dining",
-    Icon: RoomServiceIcon,
-    path: "/room-service",
-  },
   {
     name: "Villa Compendium",
     subtitle: "Villa Guide",
     Icon: BookIcon,
-    path: "/compendium",
+    // path: "/compendium",
   },
   {
     name: "Villa Rules",
     subtitle: "Policies & Info",
     Icon: ScrollIcon,
-    path: "/rules",
+    // path: "/rules",
   },
   {
     name: "Facilities & Activities",
     subtitle: "Pool, Garden & Amenities",
     Icon: FacilitiesIcon,
-    path: "/facilities",
+    // path: "/facilities",
   },
+  {
+    name: "Room Service",
+    subtitle: "In-Villa Dining",
+    Icon: RoomServiceIcon,
+    // path: "/room-service",
+  },
+  { name: "Spa", subtitle: "Wellness & Ritual", Icon: SpaIcon, path: "/spa" },
 ];
 
 export default function ServicesSection({ labelStyle, visible = true }) {
@@ -42,20 +42,26 @@ export default function ServicesSection({ labelStyle, visible = true }) {
 
   const handleScroll = () => {
     const el = scrollRef.current;
+    if (!el) return;
+
     const maxScroll = el.scrollWidth - el.clientWidth;
+    if (maxScroll <= 0) return;
+
     const progress = el.scrollLeft / maxScroll;
     setScrollProgress(progress);
   };
 
   return (
     <section className={`bali-up d2 ${visible ? "on" : ""}`}>
-      <p className="label-jost">Services</p>
+      <p className="label-jost text-[10px] md:text-[13px] xl:text-[14px] 2xl:text-[14px]">
+        Services
+      </p>
 
       {/* SCROLL AREA */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex gap-[12px] overflow-x-auto no-scrollbar pt-[8px]"
+        className=" flex gap-[12px] md:gap-[14px] xl:gap-[16px] 2xl:gap-[18px] overflow-x-auto no-scrollbar md:pt-[8px] md:grid md:grid-cols-4 md:overflow-visible xl:grid-cols-5 2xl:grid-cols-6"
       >
         {services.map((service, i) => (
           <ServiceCard
@@ -71,7 +77,7 @@ export default function ServicesSection({ labelStyle, visible = true }) {
       </div>
 
       {/* Slider */}
-      <div className="mt-4 flex justify-center">
+      <div className="mt-4 flex justify-center md:hidden">
         <div className="relative w-[60px] h-[4px] bg-[#e7dfd7] rounded-full overflow-hidden">
           <div
             className="absolute top-0 left-0 h-full bg-[#8b7d6b] rounded-full transition-all duration-200"

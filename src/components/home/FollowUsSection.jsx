@@ -4,12 +4,12 @@ const socialLinks = [
   {
     icon: (
       <svg
-        width="14"
-        height="14"
+        width="21"
+        height="21"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -22,12 +22,12 @@ const socialLinks = [
   {
     icon: (
       <svg
-        width="14"
-        height="14"
+        width="21"
+        height="21"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -38,12 +38,12 @@ const socialLinks = [
   {
     icon: (
       <svg
-        width="14"
-        height="14"
+        width="21"
+        height="21"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -56,12 +56,12 @@ const socialLinks = [
     href: "https://thebalidreamvilla.com/",
     icon: (
       <svg
-        width="14"
-        height="14"
+        width="21"
+        height="21"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -74,15 +74,13 @@ const socialLinks = [
 
 export default function FollowUsSection({ labelStyle, visible }) {
   return (
-    <section className={`bali-up d5 ${visible ? "on" : ""} border-t border-[rgba(255,240,210,0.08)] pt-[32px]`}>
-      <p className="label-jost">Follow Us</p>
-      <div className="flex gap-[10px] items-center">
+    <section className="bali-up d5 on border-t border-[rgba(255,240,210,0.08)] pt-[32px]">
+      <p className="label-jost text-[10px] md:text-[13px] xl:text-[14px] 2xl:text-[14px]">
+        Follow Us
+      </p>
+      <div className="flex gap-[10px] items-center md:pt-[8px]">
         {socialLinks.map(({ label, icon, href }, i) => (
-          <a
-            key={i}
-            href={href}
-            className="flex items-center gap-[12px]"
-          >
+          <a key={i} href={href} className="flex items-center gap-[12px]">
             <InfoIconCircle>{icon}</InfoIconCircle>
             <p className="font-jost text-[12.5px] font-[300] text-[rgba(230,210,180,0.88)]">
               {label}
