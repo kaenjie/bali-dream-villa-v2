@@ -61,7 +61,7 @@ export default function ServicesSection({ labelStyle, visible = true }) {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className=" flex gap-[12px] md:gap-[14px] xl:gap-[16px] 2xl:gap-[18px] overflow-x-auto no-scrollbar md:pt-[8px] md:grid md:grid-cols-4 md:overflow-visible xl:grid-cols-5 2xl:grid-cols-6"
+        className=" flex gap-[12px] md:gap-[14px] xl:gap-[16px] 2xl:gap-[18px] overflow-x-auto no-scrollbar md:pt-[8px] md:grid md:grid-cols-4 md:overflow-visible 2xl:grid-cols-5"
       >
         {services.map((service, i) => (
           <ServiceCard

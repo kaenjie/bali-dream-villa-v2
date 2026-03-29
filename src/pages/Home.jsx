@@ -43,7 +43,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_0%,rgba(212,175,55,0.15),transparent_60%)]" />
 
         {/* LOGO */}
-        <div className="absolute inset-0 flex items-start justify-center pt-10">
+        <div className="absolute inset-0 flex items-start justify-center pt-10 2xl:pt-24">
           <img
             src={logo}
             alt="The Bali Dream"
